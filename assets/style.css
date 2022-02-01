@@ -1,0 +1,78 @@
+.d-f {
+  display: flex;
+}
+.bgc-h {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 212, 255, 1) 0%,
+    rgba(9, 9, 121, 1) 67%,
+    rgba(4, 0, 59, 1) 100%
+  );
+  color: white;
+}
+body {
+  margin: 1rem;
+}
+.font-size {
+  font-size: x-large;
+}
+.input-b {
+  width: 100%;
+}
+.f-s-s {
+  font-size: small;
+}
+.pr {
+  padding-right: 1rem;
+}
+.f-w-w {
+  flex-wrap: wrap;
+}
+.d-i-b {
+  display: inline-block;
+}
+.m-t {
+  margin-top: 2rem;
+}
+.min-w {
+  min-width: 100%;
+}
+.t-a-c {
+  text-align: center;
+}
+.pb {
+  padding-bottom: 0.5rem;
+}
+hr {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 2px solid black;
+  margin: 1rem 0;
+  padding: 0;
+}
+.pl {
+  padding-left: 0.5rem;
+}
+.div-bgc {
+  background-color: darkgray;
+}
+.pxy {
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.low {
+  background-color: green;
+}
+.med {
+  background-color: yellow;
+}
+.high {
+  background-color: red;
+}
+.footer {
+  bottom: 0;
+  position: absolute;
+}

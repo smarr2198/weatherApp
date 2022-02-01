@@ -6,34 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
-    <header>
+    <header class="text-center col-12 bgc-h">
         <!-- header -->
+        <h1>Weather Dashboard</h1>
     </header>
-    <aside>
-        <!-- search -->
-        <form id="searchForm">
-            <input id="searchInput" type="text" placeholder="Chicago">
-            <button type="submit">Search</button>
-        </form>
-        <!-- input -->
-        <!-- button -->
-        <!-- display last 8 cities -->
-        <div id="searchHistory">
-        </div>
+    <div class="d-f">
+        <aside>
+            <!-- search -->
+            <form id="searchForm" class="min-w col-3">
+                <label class="font-weight-bold font-size">Search For City:</label>
+                <input id="searchInput" type="text" placeholder="Chicago" class="w-100">
+                <button type="submit" class="btn btn-primary w-100">Search</button>
+                <hr>
+                </hr>
+
+                <!-- input -->
+                <!-- button -->
+                <!-- display last 8 cities -->
+                <div id="searchHistory" class="">
+            </form>
+    </div>
+
     </aside>
-    <main>
+    <main class="col-9">
         <!-- current weather -->
-        <div id="currentWeather"></div>
+        <div id="currentWeather" class=""></div>
         <!-- 5 day forecast -->
-        <h3>5-Day Forecast</h3>
-        <div id="fiveDayWeather"></div>
+        <h3 id="fiveDayTitle" class="m-t font-weight-bold"></h3>
+        <div id="fiveDayWeather" class="d-f px justify-content-between f-w-w"></div>
     </main>
+    </div>
     <script src="./assets/script.js"></script>
 </body>
+<footer class="text-center bgc-h col-12 footer">
+    <!-- header -->
+    <p>Made by Stephen Marr</p>
+</footer>
 
 </html>

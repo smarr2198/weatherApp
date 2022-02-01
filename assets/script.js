@@ -36,11 +36,27 @@ function displayCurrentWeather(currentCityData, cityName) {
   // create dynamic bg for uv index by adding class based on value of uv
   document.querySelector(
     "#currentWeather"
-  ).innerHTML = `<h2>${cityName} ${moment
+  ).innerHTML = `<div class="border border-dark pb pl"><h2>${cityName} ${moment
     .unix(currentCityData.dt)
     .format("MMM Do YY")} <img src="${weatherIcon}"></h2> <div>Temp: ${
     currentCityData.temp
-  } \xB0F</div>`;
+  } \xB0F</div><div>Wind Speed: ${
+    currentCityData.wind_speed
+  } MPH</div><div>Humidity: ${
+    currentCityData.humidity
+  } %</div><div id="uviDiv">UV Index: ${currentCityData.uvi}</div></div>`;
+
+  //   let uvi = currentCityData.uvi;
+  //   let uviElement = document.getElementById("uviDiv");
+  //   if (uvi <= 2) {
+  //     uviElement.classList.add("low");
+  //   }
+  //   if (2 < uvi <= 5) {
+  //     uviElement.addClass("med");
+  //   }
+  //   if (uvi > 5) {
+  //     uviElement.classList.add("high");
+  //   }
 }
 
 function displayFiveDayWeather(fiveDayCityData) {
@@ -50,9 +66,20 @@ function displayFiveDayWeather(fiveDayCityData) {
   cityData.forEach((day) => {
     let weatherIcon = `http://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
     // todo: temp, wind, humidity DONT FORGET UNITS ()
-    document.querySelector("#fiveDayWeather").innerHTML += `<div><div>${moment
+    document.querySelector("#fiveDayTitle").innerHTML = "5 Day Forecast:";
+    document.querySelector(
+      "#fiveDayWeather"
+    ).innerHTML += `<div><div class="div-bgc pxy m-t">${moment
       .unix(day.dt)
-      .format("MMM Do YY")}</div> <div><img src="${weatherIcon}"></div></div>`;
+      .format(
+        "MMM Do YY"
+      )}</div> <div class="div-bgc pxy"><img src="${weatherIcon}"></div><div class="div-bgc pxy">Temp: ${
+      day.temp.day
+    } \xB0F</div><div class="div-bgc pxy">Wind: ${
+      day.wind_speed
+    } MPH</div><div class="div-bgc pxy">Humidity: ${
+      day.humidity
+    } %</div></div>`;
   });
 }
 
@@ -61,7 +88,7 @@ function handleFormSubmit(event) {
   const city = document.querySelector("#searchInput").value.trim();
   document.querySelector(
     "#searchHistory"
-  ).innerHTML += `<button data-city="${city}">${city}</button>`;
+  ).innerHTML += `<button class="W-100 btn btn-secondary btn-block" data-city="${city}">${city}</button>`;
   handleCoords(city);
 }
 
