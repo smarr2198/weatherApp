@@ -90,8 +90,10 @@ function handleFormSubmit(event) {
   document.querySelector("#searchHistory").innerHTML = "";
   const city = document.querySelector("#searchInput").value.trim();
   cityArray.push(city);
-  cityArray.filter((city) => {});
-  cityArray.forEach((city) => {
+  const filteredCities = cityArray.filter((city, index) => {
+    return cityArray.indexOf(city) === index;
+  });
+  filteredCities.forEach((city) => {
     document.querySelector(
       "#searchHistory"
     ).innerHTML += `<button class="W-100 btn btn-secondary btn-block" data-city="${city}">${city}</button>`;
