@@ -1,5 +1,5 @@
 // variables
-
+const cityArray = [];
 // functions
 function handleCoords(searchCity) {
   const fetchUrl = `http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=4b9f7dc3f8536150bc0eb915e8e4a81b`;
@@ -44,19 +44,21 @@ function displayCurrentWeather(currentCityData, cityName) {
     currentCityData.wind_speed
   } MPH</div><div>Humidity: ${
     currentCityData.humidity
-  } %</div><div id="uviDiv">UV Index: ${currentCityData.uvi}</div></div>`;
+  } %</div><div id="uviDiv" class="w-fc">UV Index: ${
+    currentCityData.uvi
+  }</div></div>`;
 
-  //   let uvi = currentCityData.uvi;
-  //   let uviElement = document.getElementById("uviDiv");
-  //   if (uvi <= 2) {
-  //     uviElement.classList.add("low");
-  //   }
-  //   if (2 < uvi <= 5) {
-  //     uviElement.addClass("med");
-  //   }
-  //   if (uvi > 5) {
-  //     uviElement.classList.add("high");
-  //   }
+  let uvi = currentCityData.uvi;
+  let uviElement = document.getElementById("uviDiv");
+  if (uvi <= 2) {
+    uviElement.classList.add("low");
+  }
+  if (uvi > 2 && uvi <= 5) {
+    uviElement.classList.add("med");
+  }
+  if (uvi > 5) {
+    uviElement.classList.add("high");
+  }
 }
 
 function displayFiveDayWeather(fiveDayCityData) {
@@ -85,10 +87,16 @@ function displayFiveDayWeather(fiveDayCityData) {
 
 function handleFormSubmit(event) {
   event.preventDefault();
+  document.querySelector("#searchHistory").innerHTML = "";
   const city = document.querySelector("#searchInput").value.trim();
-  document.querySelector(
-    "#searchHistory"
-  ).innerHTML += `<button class="W-100 btn btn-secondary btn-block" data-city="${city}">${city}</button>`;
+  cityArray.push(city);
+  cityArray.filter((city) => {});
+  cityArray.forEach((city) => {
+    document.querySelector(
+      "#searchHistory"
+    ).innerHTML += `<button class="W-100 btn btn-secondary btn-block" data-city="${city}">${city}</button>`;
+  });
+
   handleCoords(city);
 }
 
