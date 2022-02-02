@@ -89,7 +89,7 @@ function handleFormSubmit(event) {
   event.preventDefault();
   document.querySelector("#searchHistory").innerHTML = "";
   const city = document.querySelector("#searchInput").value.trim();
-  cityArray.push(city);
+  cityArray.push(city.toLowerCase());
   const filteredCities = cityArray.filter((city, index) => {
     return cityArray.indexOf(city) === index;
   });
