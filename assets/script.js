@@ -1,5 +1,5 @@
 // variables
-const cityArray = [];
+const cityArray = JSON.parse(localStorage.getItem("cityHistory")) || [];
 // functions
 function handleCoords(searchCity) {
   const fetchUrl = `http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=4b9f7dc3f8536150bc0eb915e8e4a81b`;
@@ -93,13 +93,16 @@ function handleFormSubmit(event) {
   const filteredCities = cityArray.filter((city, index) => {
     return cityArray.indexOf(city) === index;
   });
-  filteredCities.forEach((city) => {
+  localStorage.setItem("cityHistory", JSON.stringify(filteredCities));
+  showSearchButtons(filteredCities);
+  handleCoords(city);
+}
+function showSearchButtons(cities) {
+  cities.forEach((city) => {
     document.querySelector(
       "#searchHistory"
     ).innerHTML += `<button class="W-100 btn btn-secondary btn-block" data-city="${city}">${city}</button>`;
   });
-
-  handleCoords(city);
 }
 
 function handleHistory(event) {
@@ -111,6 +114,7 @@ function handleHistory(event) {
 // on page load, show any past cities searched
 // search for city
 // click on city to show weather
+showSearchButtons(cityArray);
 document
   .querySelector("#searchForm")
   .addEventListener("submit", handleFormSubmit);
