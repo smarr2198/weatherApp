@@ -31,7 +31,7 @@ function handleCurrentWeather(coordinates, city) {
 }
 
 function displayCurrentWeather(currentCityData, cityName) {
-  let weatherIcon = `http://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
+  let weatherIcon = `https://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
   // todo: add Wind, humidity, UV index DONT FORGET UNITS
   // create dynamic bg for uv index by adding class based on value of uv
   document.querySelector(
@@ -66,7 +66,7 @@ function displayFiveDayWeather(fiveDayCityData) {
   document.querySelector("#fiveDayWeather").innerHTML = "";
 
   cityData.forEach((day) => {
-    let weatherIcon = `http://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
+    let weatherIcon = `https://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
     // todo: temp, wind, humidity DONT FORGET UNITS ()
     document.querySelector("#fiveDayTitle").innerHTML = "5 Day Forecast:";
     document.querySelector(
