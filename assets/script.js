@@ -101,7 +101,7 @@ function showSearchButtons(cities) {
   cities.forEach((city) => {
     document.querySelector(
       "#searchHistory"
-    ).innerHTML += `<button class="W-100 btn btn-secondary btn-block" data-city="${city}">${city}</button>`;
+    ).innerHTML += `<button class="W-100 btn btn-secondary btn-block banana" data-city="${city}">${city}</button>`;
   });
 }
 
